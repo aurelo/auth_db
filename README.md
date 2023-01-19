@@ -39,6 +39,32 @@ spring.datasource.password=${DB_PASS:your_password}
 ```
 ```${VARIABLE:default} evaluates to default if VARIABLE is unset or empty in the environment.```
 
+## DEPLOYING
+
+### deploying on railway.app
+
+Steps for deploying on railway.app
+assuming you signed in using your gihub account hosting this app
+
+1) create empty project
+2) create postgresql database service
+3) set up environment variables for database using variables from postgres service
+4) deploy spring app from repo
+
+#### how to set up database environment variables
+Project expects *DB_URL*, *DB_USER* and *DB_PASS* environment variables.
+
+Postgres jdbc database url is of format:
+```jdbc:postgresql://__HOST__:__PORT__/___DATABASE_```
+
+After deploying postgres service on railway you are automatically provided with variables for database service.
+* *DB_USER*=**PGUSER**
+* *DB_PASS*=**PGPASSWORD**
+* *DB_URL*=jdbc:postgresql://**PGHOST**:**PGPORT**/**PGDATABASE**
+
+![](doc/images/railway.app_db_config.png)
+
+
 IntelliJ enables definition of environment variables in run time configuration:
 ![](doc/images/IntelliJ_environment_run_configuration.png)
 
