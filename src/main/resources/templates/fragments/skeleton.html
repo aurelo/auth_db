@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title data-th-text="${title}">Skeleton</title>
-    <div data-th-replace="fragments/includes::css_js"></div>
+    <div data-th-replace="~{fragments/includes::css_js}"></div>
 </head>
 <body>
 <div class="ui container">
 
-    <div data-th-replace="fragments/navigation::navbar(${title}, ${activeMenu})"></div>
+    <div data-th-replace="~{fragments/navigation::navbar(${title}, ${activeMenu})}"></div>
 
     <div class="ui segment" data-th-replace="${content}">
         <p>Welocome to our site</p>
