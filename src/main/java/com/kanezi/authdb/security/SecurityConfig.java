@@ -21,9 +21,11 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 // default form
-                .formLogin(Customizer.withDefaults())
-                .authorizeHttpRequests(r -> r.anyRequest()
-                                             .authenticated())
+//                .formLogin(Customizer.withDefaults())
+                .formLogin(f -> f.loginPage("/login").usernameParameter("email"))
+                .logout(l -> l.clearAuthentication(true).invalidateHttpSession(true).logoutSuccessUrl("/"))
+                .authorizeHttpRequests(r -> r.anyRequest().permitAll()//authenticated()
+                )
                 .build();
     }
 

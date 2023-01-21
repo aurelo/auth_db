@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Navbar</title>
+</head>
+<body>
+
+<div class="ui secondary pointing menu" data-th-fragment="navbar(title, activeMenu)">
+    <div class="ui padded basic container segment">
+        <a class="item" data-th-classappend="${#strings.equals(activeMenu, 'home')} ? 'active' : ''"
+           data-th-href="@{/}">
+            Home
+        </a>
+        <a class="item" data-th-classappend="${#strings.equals(activeMenu, 'user')} ? 'active' : ''"
+           data-th-href="@{/user}" data-sec-authorize="isAuthenticated()">
+            User
+        </a>
+
+        <div class="center aligned item">
+            <h1 class="ui header" data-th-text="${title}">
+            </h1>
+        </div>
+
+        <div class="right menu">
+            <a class="ui item" data-th-href="@{/login}" data-sec-authorize="!isAuthenticated()">
+                Login
+            </a>
+
+            <a class="ui item" data-th-onclick="|$('#logout_form').submit();|" data-sec-authorize="isAuthenticated()">
+                Logout
+                <form id="logout_form" data-th-action="@{/logout}" method="post"></form>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

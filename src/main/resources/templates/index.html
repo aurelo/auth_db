@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-th-replace="fragments/skeleton::layout('Spring 2 prod', 'home', ~{this::#home_content})">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome my young padavan</title>
+    <title>Title</title>
 </head>
 <body>
 
-<h1 data-th-text="${message}">Hello world</h1>
-<h2>Page generate at: <span data-th-text="${date_time}"></span></h2>
+<div class="ui segment" id="home_content">
+    <p>Welcome to our site</p>
+
+    <p data-th-text="${message}"></p>
+</div>
+
 </body>
 </html>
