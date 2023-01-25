@@ -61,7 +61,7 @@ public record UserController(
 
         if (result.hasErrors()) {
             log.error("Register form has errors: {}", result.getAllErrors());
-            return "/register";
+            return "register";
         }
 
         AtomicReference<String> returnUrlRef = new AtomicReference<>();
@@ -76,7 +76,7 @@ public record UserController(
            })
            .onFailure(e -> {
                attributes.addFlashAttribute("toast", Toast.error("Error", e.getMessage()));
-               returnUrlRef.set("/register");
+               returnUrlRef.set("register");
            });
 
 
