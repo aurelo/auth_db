@@ -71,7 +71,8 @@ public record UserController(
                attributes.addFlashAttribute("toast", Toast.success("User created",
                                                                    String.format("User %s created!",
                                                                                  appUser.getUsername())));
-               returnUrlRef.set("redirect:/");
+               attributes.addFlashAttribute("email", appUser.getUsername());
+               returnUrlRef.set("redirect:/login");
            })
            .onFailure(e -> {
                attributes.addFlashAttribute("toast", Toast.error("Error", e.getMessage()));

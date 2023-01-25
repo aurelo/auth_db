@@ -16,21 +16,7 @@
         <p data-th-text="${message}"></p>
     </div>
 
-
-    <script data-th-if="${toast}" data-th-inline="javascript">
-
-        const toastClass = /*[[${toast.clazz}]]*/'';
-        const toastTitile = /*[[${toast.title}]]*/'';
-        const toastMessage = /*[[${toast.message}]]*/'';
-
-        $.toast({
-            title: toastTitile,
-            class: toastClass,
-            message: toastMessage
-        })
-        ;
-    </script>
-
+    <script data-th-replace="~{fragments/toast::toast}"></script>
 </div>
 
 </body>

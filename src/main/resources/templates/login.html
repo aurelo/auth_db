@@ -46,7 +46,7 @@
                     <div class="field">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
-                            <input type="text" name="email" placeholder="E-mail address" autocomplete="off">
+                            <input type="text" name="email" data-th-value="${email}" placeholder="E-mail address" autocomplete="off">
                         </div>
                     </div>
                     <div class="field">
@@ -68,5 +68,7 @@
         </div>
     </div>
 </div>
+
+<script data-th-replace="~{fragments/toast::toast}"></script>
 </body>
 </html>

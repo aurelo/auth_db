@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script data-th-if="${toast}" data-th-inline="javascript" data-th-fragment="toast">
+
+  const toastClass = /*[[${toast.clazz}]]*/'';
+  const toastTitile = /*[[${toast.title}]]*/'';
+  const toastMessage = /*[[${toast.message}]]*/'';
+
+  $.toast({
+    title: toastTitile,
+    class: toastClass,
+    message: toastMessage
+  })
+  ;
+</script>
+
+</body>
+</html>
