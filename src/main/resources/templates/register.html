@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-th-replace="~{fragments/skeleton::layout('Sign up', 'signup', ~{this::#registration_content})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+
+<div id="registration_content" class="ui padded segment">
+
+<!--
+ Example of displaying errors outside of form
+  <div data-th-if="${#fields.hasErrors('${registrationForm.email}')}"
+       data-th-errors="*{registrationForm.email}"></div>
+  <ul>
+    <li data-th-each="err : ${#fields.errors('registrationForm.*')}" data-th-text="${err}" />
+  </ul>-->
+
+  <h1 class="ui dividing header" data-th-text="#{user.registration.title}">
+    Registration
+  </h1>
+  <form class="ui form"
+        data-th-action="@{/register}"
+        method="post"
+        data-th-object="${registrationForm}"
+        data-th-classappend="${#fields.hasAnyErrors() ? 'error' : ''}"
+  >
+    <div class="field" data-th-classappend="${#fields.hasErrors('email') ? 'error' : ''}">
+      <label>Email</label>
+      <input type="email" name="email" placeholder="email" data-th-field="*{email}" autocomplete="off">
+      <div class="ui basic red pointing prompt label"
+           data-th-if="${#fields.hasErrors('email')}"
+           data-th-errors="*{email}">
+      </div>
+    </div>
+    <div class="field" data-th-classappend="${#fields.hasErrors('username') ? 'error' : ''}">
+      <label>Username</label>
+      <input type="text" name="username" placeholder="Username" data-th-field="*{username}" autocomplete="off">
+      <div class="ui basic red pointing prompt label"
+           data-th-if="${#fields.hasErrors('username')}"
+           data-th-errors="*{username}">
+      </div>
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="password" data-th-field="*{password}">
+    </div>
+
+    <div class="ui error message">
+      <div class="header">Error registering</div>
+      <p data-th-text="#{user.registration.error}">Errors registering</p>
+    </div>
+
+
+<!--    <div class="field">
+      <div class="ui checkbox">
+        <input type="checkbox" tabindex="0" class="hidden">
+        <label>I agree to the Terms and Conditions</label>
+      </div>
+    </div>-->
+    <button class="ui button" type="submit">Register</button>
+  </form>
+
+</div>
+
+
+</body>
+</html>

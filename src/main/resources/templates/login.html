@@ -46,7 +46,7 @@
                     <div class="field">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
-                            <input type="text" name="email" placeholder="E-mail address">
+                            <input type="text" name="email" placeholder="E-mail address" autocomplete="off">
                         </div>
                     </div>
                     <div class="field">
@@ -62,9 +62,9 @@
 
             </form>
 
-<!--            <div class="ui message">
-                New to us? <a href="#">Sign Up</a>
-            </div>-->
+            <div class="ui message">
+                New to us? <a data-th-href="@{/register}">Sign Up</a>
+            </div>
         </div>
     </div>
 </div>

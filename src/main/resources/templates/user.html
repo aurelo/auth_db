@@ -7,7 +7,10 @@
 <body>
 
 <div id="user_content">
-  <p>Welcome <span data-sec-authentication="name"></span></p>
+  <p>Welcome <span class="ui red text" data-sec-authentication="name"></span></p>
+    <p>Upisali ste age: <span data-th-text="${age}"></span></p>
+    <p data-th-if="${visina}">Upisali ste visinu: <span data-th-text="${visina}"></span></p>
+    <p data-th-unless="${visina}">Niste upisali visinu</p>
 </div>
 
 </body>

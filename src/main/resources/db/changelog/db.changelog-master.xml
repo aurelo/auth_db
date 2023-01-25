@@ -15,4 +15,8 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="create_table_users" author="kanezi">
+        <sqlFile path="/db/changelog/schema/tables/create_users.sql"/>
+    </changeSet>
+
 </databaseChangeLog>
