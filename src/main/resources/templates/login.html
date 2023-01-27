@@ -41,12 +41,29 @@
                     Log-in to your account
                 </div>
             </h2>
+
+            <div class="ui fluid container">
+                    <a class="ui basic github fluid button" data-th-href="@{/oauth2/authorization/github}">
+                        <i class="github icon"></i>
+                        Github
+                    </a>
+                <br>
+                    <a class="ui basic google fluid button" data-th-href="@{/oauth2/authorization/google}">
+                        <i class="google icon"></i>
+                        Google
+                    </a>
+            </div>
+
+
+            <div class="ui horizontal divider">or</div>
+
             <form class="ui large form" data-th-action="@{/login}" method="post">
                 <div class="ui segment">
                     <div class="field">
                         <div class="ui left icon input">
                             <i class="user icon"></i>
-                            <input type="text" name="email" data-th-value="${email}" placeholder="E-mail address" autocomplete="off">
+                            <input type="text" name="email" data-th-value="${email}" placeholder="E-mail address"
+                                   autocomplete="off">
                         </div>
                     </div>
                     <div class="field">
